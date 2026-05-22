@@ -1,6 +1,6 @@
 # RLoopBench
 
-RLoopBench is a benchmark for evaluating whether DNA sequence representations generalize to R-loop-forming sequence prediction. The benchmark compares rule-based features, classical sequence encodings, task-specific deep learning models, and DNA foundation model embeddings under a unified linear-probe evaluation framework.
+RLoopBench is a benchmark for evaluating whether DNA foundation models generalize to R-loop-forming sequence prediction. The benchmark compares rule-based features, classical sequence encodings, task-specific deep learning models, and DNA foundation model embeddings under a unified linear-probe evaluation framework.
 
 R-loops are three-stranded nucleic acid structures consisting of an RNA--DNA hybrid and a displaced single-stranded DNA strand. Because R-loop formation is associated with transcription, replication stress, genome instability, and disease-related genome dysfunction, R-loop prediction provides a biologically distinct test case beyond conventional gene regulatory benchmarks.
 
@@ -8,21 +8,19 @@ R-loops are three-stranded nucleic acid structures consisting of an RNA--DNA hyb
 
 This repository provides:
 
-- Processed R-loop benchmark datasets
-- Feature generation scripts for k-mer and one-hot representations
-- Example training code using one-hot encoding
+- Example linear-probe training code using 3-mer encoding
 - Pretrained linear-probe classifiers for each representation
 - Inference scripts for applying trained linear probes
-- Links and configuration details for DNA foundation model embeddings
-- Data tables and scripts used to reproduce the main figures
 
 ## Methods included
 
-RLoopBench evaluates the following representation paradigms:
+RLoopBench evaluates the following representation paradigms.
 
 ### Rule-based method
 
 - QmRLFS-finder
+
+Please refer to http://r-loop.org/?pg=qmrlfs for details.
 
 ### Classical sequence representations
 
@@ -30,27 +28,28 @@ RLoopBench evaluates the following representation paradigms:
 - 4-mer frequency
 - One-hot encoding
 
+Trained models and inference scripts are provided in `models/`. These scripts can be run using the conda environment specified in `environment.yml`.
+
+```bash
+conda env create -f environment.yml
+conda activate rloop_bench
+```
+
+We also provide an example workflow in `training/` showing how to generate 3-mer embeddings, visualize embeddings, and train a linear-probe classifier.
+
 ### Task-specific deep learning models
 
-- DeepER
-- deepRloopPre
+- DeepER: https://github.com/NjuChenlab/DeepER
+- deepRloopPre: https://github.com/PEHGP/deepRloopPre
+
+Please refer to the original repositories for installation and usage details.
 
 ### DNA foundation model embeddings
 
-- Evo2
-- Nucleotide Transformer v3, NTv3
-- DNABERT-2
+- Evo2: https://github.com/arcinstitute/evo2
+- Nucleotide Transformer v3: https://huggingface.co/InstaDeepAI/NTv3_650M_pre
+- DNABERT-2: https://github.com/MAGICS-LAB/DNABERT_2
 
-All learned sequence representations are evaluated using a unified linear-probe classifier to reduce the influence of downstream model complexity.
+The trained linear-probe models and reference inference scripts for these representations are provided in `models/`.
 
-## Repository structure
-
-```text
-RLoopBench/
-├── data/                  # Raw and processed R-loop datasets
-├── models/                # Trained linear-probe classifiers and scalers
-├── scripts/               # Preprocessing, training, inference, and evaluation scripts
-├── results/               # Benchmark metrics, predictions, and figure source data
-├── figures/               # Plotting scripts for manuscript figures
-├── notebooks/             # Example notebooks
-└── docs/                  # Additional dataset and model documentation
+Please use the foundation-model inference scripts together with each DNA foundation model's own implementation environment. The scripts in this repository are intended as reference implementations for reproducing the embedding-to-linear-probe inference step.
