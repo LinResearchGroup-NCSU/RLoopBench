@@ -1,0 +1,26 @@
+name: rloop_bench
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - pytorch=2.5.1
+  - pytorch-cuda=12.1
+  - numpy
+  - pandas
+  - scipy
+  - scikit-learn
+  - joblib
+  - biopython
+  - tqdm
+  - matplotlib
+  - umap-learn
+  - transformers
+  - accelerate
+  - sentencepiece
+  - pip:
+      - pyfaidx
+      - imbalanced-learn
