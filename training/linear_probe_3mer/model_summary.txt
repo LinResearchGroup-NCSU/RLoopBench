@@ -1,0 +1,4 @@
+Input Dimension: 64
+Total Parameters: 65
+Best Hyperparameters: {'lr': 0.0001, 'weight_decay': 0, 'epochs_trained': 75, 'Accuracy': 0.9776391055642226, 'Precision': 0.9788010425716768, 'Recall': 0.9764257236956145, 'F1': 0.9776119402985075, 'Specificity': np.float64(0.9788524874158632), 'AUC': 0.9934928292145263, 'PRAUC': 0.9927548102288092}
+Final Test Metrics: {'Accuracy': 0.9620976116303219, 'Precision': 0.973404255319149, 'Recall': 0.9501557632398754, 'F1': 0.9616395165528113, 'Specificity': np.float64(0.974039459987053), 'AUC': 0.9910709760623873, 'PRAUC': 0.9894943560022448}
