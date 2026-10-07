@@ -1,8 +1,6 @@
 # RLoopBench
 
-RLoopBench is a benchmark for evaluating whether DNA foundation models generalize to R-loop-forming sequence prediction. The benchmark compares rule-based features, classical sequence encodings, task-specific deep learning models, and DNA foundation model embeddings under a unified linear-probe evaluation framework.
-
-R-loops are three-stranded nucleic acid structures consisting of an RNA--DNA hybrid and a displaced single-stranded DNA strand. Because R-loop formation is associated with transcription, replication stress, genome instability, and disease-related genome dysfunction, R-loop prediction provides a biologically distinct test case beyond conventional gene regulatory benchmarks.
+RLoopBench is a benchmark for evaluating genomic representations on R-loop-forming sequence prediction. We benchmarked classical sequence encodings, established R-loop prediction methods, and pretrained DNA foundation-model representations across experimental platforms, consensus levels, and species.
 
 ## Repository overview
 
@@ -53,3 +51,17 @@ Please refer to the original repositories for installation and usage details.
 The trained linear-probe models and reference inference scripts for these representations are provided in `models/`.
 
 Please use the foundation-model inference scripts together with each DNA foundation model's own implementation environment. The scripts in this repository are intended as reference implementations for reproducing the embedding-to-linear-probe inference step.
+
+### Dataset
+
+The processed R-loop benchmark sequences are publicly available in FASTA format on Zenodo:
+
+https://zenodo.org/records/23042190
+
+Details of the original data sources and preprocessing procedures are provided in the Supplementary Text.
+
+### Citation
+
+The associated manuscript is available as a bioRxiv preprint:
+
+https://www.biorxiv.org/content/10.64898/2026.06.01.729367v1
